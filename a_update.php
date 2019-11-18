@@ -23,9 +23,9 @@ $type = $_POST['type'];
 $status = $_POST['status'];
 $id = $_POST['id'];
 
-// echo $status;
-// echo $type;
-// echo "<h1 class='text-danger'>".$status."</h1>";
+echo $status;
+echo $type;
+echo "<h1 class='text-danger'>".$status."</h1>";
 
 
 //mysql update statement
@@ -41,7 +41,7 @@ $sql = "UPDATE `media`
             `publisher_name` = '$publisher_name', 
             `publisher_size` = '$publisher_size', 
             `publisher_adress` = '$publisher_adress', 
-            `type` = `type`, 
+            `type` = '$type', 
             `status` = '$status'
         WHERE
             `ID` = $id";

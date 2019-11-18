@@ -17,8 +17,8 @@ if(isset($_GET["id"])){
 }
 $id = $_GET['id'];
 
-// echo "<h1 class='text-danger'>".$row['status']."</h1>";
-// echo $row['type'];
+echo "<h1 class='text-danger'>".$row['status']."</h1>";
+echo $row['type'];
 ?>
     <div class="container-fluid my-5">
         <form method="POST" action="a_update.php"> 
@@ -51,32 +51,29 @@ $id = $_GET['id'];
                 <label class="col-sm-2 col-form-label">Publish Date</label>
                 <input type="date" class="form-control col-sm-10 mb-4" id="publish_date" name="publish_date" placeholder="Description" value="<?php echo $row['publish_date'] ?>">
                 <label class="col-sm-2 col-form-label">Type</label>
-                <select class="form-control col-sm-10 mb-4" id="type" name="type" value="<?php echo $row['type'] ?>">
+                <select class="form-control col-sm-10 mb-4" id="type" name="type">
                     <option></option>
-                    <option>book</option>
-                    <option>cd</option>
-                    <option>dvd</option>
-                    <option>ebook</option>
-                    <option>software</option>
+                    <option value="book" <?php if ($row['type']=='book') echo "selected='selected'"?> >book</option>
+                    <option value="cd" <?php if ($row['type']=='cd') echo "selected='selected'"?> >cd</option>
+                    <option value="dvd" <?php if ($row['type']=='dvd') echo "selected='selected'"?> >dvd</option>
+                    <option value="ebook" <?php if ($row['type']=='ebook') echo "selected='selected'"?> >ebook</option>
+                    <option value="software" <?php if ($row['type']=='software') echo "selected='selected'"?> >software</option>
                 </select>
-                <label class="col-sm-2 col-form-label">Status</label>
-                <input type="text" class="form-control col-sm-10 mb-4" id="status" name="status" placeholder="availale" value="<?php echo $row['status'] ?>">
-                
-                <!-- <div id="status" class="d-block">
+                <div id="status" class="d-block">
                     <label>Status</label>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="status" value="<?php echo $row['status'] ?>" id="available">
+                        <input class="form-check-input" type="radio" name="status" value= "available" <?php if ($row['status']=='available') echo "checked='checked'"?> id="available">
                         <label class="form-check-label" for="available">
                         available
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input" type="radio" name="status" value="<?php echo $row['status'] ?>" id="reserved">
+                        <input class="form-check-input" type="radio" name="status" value ="reserved" <?php if ($row['status']=='reserved') echo "checked='checked'"?> id="reserved">
                         <label class="form-check-label" for="reserved">
                         reserved
                         </label>
                     </div>
-                </div> -->
+                </div>
             </div>
             <div class="d-flex justify-content-center">
                 <Input type="submit" class="btn btn-info mx-2 mb-5" value="Enter">
